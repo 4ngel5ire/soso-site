@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import "./Content.css";
 import knife from "../../assets/image/knife.jpg";
 import davArms from "../../assets/image/dav-arms.jpg";
 import sunburst from "../../assets/video/sunburst.mp4";
 import ReactPlayer from "react-player";
-import { readFileSync } from "fs";
 
 function Content() {
   return (
