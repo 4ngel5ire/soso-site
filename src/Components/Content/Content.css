@@ -1,0 +1,164 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-basis: 66%;
+  background-color: beige;
+  font-family: "roslindale";
+  /* transition: flex-basis 0.3s ease 0s; */
+  overflow: scroll;
+  border-left: 3px solid black;
+}
+
+.top-bar {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  z-index: 4;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 7vh;
+  background-color: cornflowerblue;
+  border-bottom: 3px solid black;
+}
+
+.top-bar__left,
+.top-bar__right {
+  display: flex;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.bar-text:hover {
+  color: rgb(241, 199, 3);
+}
+
+.bar-text {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.top-bar__right {
+  padding-left: 1rem;
+}
+
+.top-bar__left {
+  padding-right: 1rem;
+}
+
+.top-bar__title {
+  text-align: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #000;
+}
+
+.img-ctn {
+  display: flex;
+}
+
+.content-first {
+  align-self: center;
+  width: 100%;
+  height: auto;
+}
+
+.new-album-ctn {
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: cornflowerblue;
+  color: #fff;
+}
+
+.new-album-title {
+  display: flex;
+  font-size: 1.6rem;
+}
+
+.order-button {
+  margin: 1.5rem 0;
+  background-color: bisque;
+  padding: 1rem 2.5rem;
+  color: black;
+  cursor: pointer;
+  /* transition: color 0.3s ease 0s;
+  transition: background-color 0.3s ease 0s; */
+}
+
+.order-buttom:hover {
+  background-color: cornflowerblue;
+  /* transition: color 0.3s ease 0s;
+  transition: background-color 0.3s ease 0s; */
+}
+
+.new-album__video-ctn {
+  padding-top: 1rem;
+}
+
+.tour-section {
+  display: flex;
+  flex-direction: column;
+  background-color: blanchedalmond;
+  align-items: center;
+  padding: 5rem 2rem;
+}
+
+.tour-section__title {
+  font-size: 2rem;
+  padding-bottom: 2rem;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+th {
+  background-color: cornsilk;
+}
+
+td:hover {
+  background-color: blanchedalmond;
+}
+
+table {
+  background-color: white;
+}
+
+.bottom-about {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem;
+  font-family: "comic";
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bottom-title {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.bottom-about:hover {
+  animation: silly 3s linear infinite;
+  animation-direction: alternate;
+}
+
+@keyframes silly {
+  from {
+    margin-top: 0%;
+  }
+  to {
+    margin-top: 3%;
+  }
+}

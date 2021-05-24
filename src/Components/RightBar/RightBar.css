@@ -1,0 +1,55 @@
+.right-bar {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: antiquewhite;
+  font-size: 5rem;
+  font-family: "akira";
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.right-bar__text {
+  height: 90vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  animation: marquee 3s linear infinite;
+}
+
+.right-footer {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  font-family: "roslindale";
+  left: 0;
+  bottom: 0;
+  width: 34%;
+  height: 5vh;
+  background-color: cornflowerblue;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.footer-text {
+  padding: 0 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+.footer-text:hover {
+  color: rgb(241, 199, 3);
+}
+
+@keyframes marquee {
+  from {
+    margin-top: -150%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
