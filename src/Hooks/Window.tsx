@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface WindowItfc {
   width: number | undefined;
@@ -8,7 +8,6 @@ interface WindowItfc {
 // Hook
 function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState<WindowItfc>({
     width: undefined,
     height: undefined,
