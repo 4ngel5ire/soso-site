@@ -231,6 +231,13 @@ function Content() {
           ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, :) :)
         </p>
       </div>
+
+      <div className="bottom-footer">
+        <div className="bottom-footer__text1">2021 ©</div>
+        <div className="bottom-footer__text2">
+          All Rights Reserved for David :))
+        </div>
+      </div>
     </div>
   );
 }

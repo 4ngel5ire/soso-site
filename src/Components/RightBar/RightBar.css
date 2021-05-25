@@ -108,7 +108,6 @@
     align-items: flex-end;
     white-space: nowrap;
     animation: marquee 2s linear infinite;
-    /* overflow: hidden; */
   }
 
   @keyframes marquee {
