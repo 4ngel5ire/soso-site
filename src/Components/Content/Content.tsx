@@ -10,7 +10,6 @@ function Content() {
   const size = useWindowSize();
 
   function handleScreenSize() {
-    console.log(size.width);
     if (!size.width) {
       return <></>;
     }
@@ -157,21 +156,6 @@ function Content() {
         </>
       );
     }
-
-    // if (size.width > 400 && size.width < 950) {
-    //   return (
-    //     <>
-    //       <ReactPlayer
-    //         className="new-album__player"
-    //         url={sunburst}
-    //         width={725}
-    //         height={409}
-    //         controls={true}
-    //         volume={0.1}
-    //       />
-    //     </>
-    //   );
-    // }
 
     return (
       <>
