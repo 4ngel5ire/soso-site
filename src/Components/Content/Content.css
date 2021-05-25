@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  flex-basis: 66%;
+  flex: 1;
+  /* flex-basis: 66%; */
   background-color: beige;
   font-family: "roslindale";
   /* transition: flex-basis 0.3s ease 0s; */
   overflow: scroll;
   border-left: 3px solid black;
+  overflow-x: hidden;
 }
 
 .top-bar {
@@ -49,6 +51,15 @@
 
 .top-bar__left {
   padding-right: 1rem;
+}
+
+.top-bar__medium {
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  padding-bottom: 0.6rem;
 }
 
 .top-bar__title {
@@ -160,5 +171,26 @@ table {
   }
   to {
     margin-top: 3%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .top-bar {
+    flex-direction: column;
+    /* height: 13vh; */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .top-bar__title {
+    font-size: 2rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .top-bar {
+    padding-top: 0.7rem;
+    padding-bottom: 0.2rem;
   }
 }

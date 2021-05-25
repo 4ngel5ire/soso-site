@@ -1,9 +1,11 @@
 .right-bar {
   display: flex;
-  flex: 1;
+  /* flex: 1; */
+  width: 400px;
+  flex-shrink: 0;
   flex-direction: column;
   background-color: antiquewhite;
-  font-size: 5rem;
+  font-size: 4rem;
   font-family: "akira";
   justify-content: center;
   overflow: hidden;
@@ -16,7 +18,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  animation: marquee 3s linear infinite;
+  animation: marquee 4s linear infinite;
 }
 
 .right-footer {
@@ -47,9 +49,78 @@
 
 @keyframes marquee {
   from {
-    margin-top: -150%;
+    margin-top: -100%;
   }
   to {
-    margin-top: 0%;
+    margin-top: 47%;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .right-bar {
+    width: 300px;
+    font-size: 3rem;
+  }
+
+  .right-bar__text {
+    animation: marquee 3s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      margin-top: -70%;
+    }
+    to {
+      margin-top: 40%;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .right-bar {
+    width: 200px;
+    font-size: 2rem;
+  }
+
+  .right-bar__text {
+    animation: marquee 2s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      margin-top: -70%;
+    }
+    to {
+      margin-top: 40%;
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .right-bar {
+    width: 11px;
+    font-size: 0.7rem;
+  }
+
+  .right-bar__text {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    align-items: flex-end;
+    white-space: nowrap;
+    animation: marquee 2s linear infinite;
+    /* overflow: hidden; */
+  }
+
+  @keyframes marquee {
+    from {
+      margin-top: 600%;
+    }
+    to {
+      margin-top: -2000%;
+    }
+  }
+
+  .right-footer {
+    display: none;
   }
 }

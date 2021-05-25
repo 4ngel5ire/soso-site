@@ -4,23 +4,192 @@ import knife from "../../assets/image/knife.jpg";
 import davArms from "../../assets/image/dav-arms.jpg";
 import sunburst from "../../assets/video/sunburst.mp4";
 import ReactPlayer from "react-player";
+import useWindowSize from "../../Hooks/Window";
 
 function Content() {
-  return (
-    <div className="content">
-      <div className="top-bar">
-        <div className="top-bar__left">
-          <div className="bar-text">MERCH</div>
+  const size = useWindowSize();
+
+  function handleScreenSize() {
+    console.log(size.width);
+    if (!size.width) {
+      return <></>;
+    }
+
+    //large window
+    if (size.width >= 1200) {
+      return (
+        <>
+          <div className="top-bar__left">
+            <div className="bar-text">MERCH</div>
+            <div className="bar-text">VIDEOS</div>
+            <div className="bar-text">MUSIC</div>
+          </div>
+          <div className="top-bar__title">SOSO</div>
+          <div className="top-bar__right">
+            <div className="bar-text">TOUR</div>
+            <div className="bar-text">CONTACT</div>
+            <div className="bar-text">INSTA</div>
+          </div>
+        </>
+      );
+    }
+
+    //medium window
+    else if (size.width > 500 && size.width < 1200) {
+      return (
+        <>
+          <div className="top-bar__title">SOSO</div>
+          <div className="top-bar__medium">
+            <div className="bar-text">MERCH</div>
+            <div className="bar-text">VIDEOS</div>
+            <div className="bar-text">MUSIC</div>
+            <div className="bar-text">TOUR</div>
+            <div className="bar-text">CONTACT</div>
+            <div className="bar-text">INSTA</div>
+          </div>
+        </>
+      );
+    }
+
+    //mobile screens
+    return (
+      <>
+        <div className="top-bar__title">SOSO</div>
+        <div className="top-bar__medium">
           <div className="bar-text">VIDEOS</div>
           <div className="bar-text">MUSIC</div>
-        </div>
-        <div className="top-bar__title">SOSO</div>
-        <div className="top-bar__right">
           <div className="bar-text">TOUR</div>
-          <div className="bar-text">CONTACT</div>
           <div className="bar-text">INSTA</div>
         </div>
-      </div>
+      </>
+    );
+  }
+
+  function handleVideoSize() {
+    if (!size.width) {
+      return <></>;
+    }
+
+    if (size.width >= 1900) {
+      return (
+        <>
+          <ReactPlayer
+            className="new-album__player"
+            url={sunburst}
+            width={1200}
+            height={675}
+            controls={true}
+            volume={0.1}
+          />
+        </>
+      );
+    }
+
+    if (size.width < 1900 && size.width >= 1500) {
+      return (
+        <>
+          <ReactPlayer
+            className="new-album__player"
+            url={sunburst}
+            width={1200}
+            height={675}
+            controls={true}
+            volume={0.1}
+          />
+        </>
+      );
+    }
+
+    if (size.width < 1500 && size.width >= 1100) {
+      return (
+        <>
+          <ReactPlayer
+            className="new-album__player"
+            url={sunburst}
+            width={800}
+            height={450}
+            controls={true}
+            volume={0.1}
+          />
+        </>
+      );
+    }
+
+    if (size.width > 700 && size.width < 1100) {
+      return (
+        <>
+          <ReactPlayer
+            className="new-album__player"
+            url={sunburst}
+            controls={true}
+            volume={0.1}
+          />
+        </>
+      );
+    }
+
+    if (size.width > 600 && size.width < 700) {
+      return (
+        <>
+          <ReactPlayer
+            className="new-album__player"
+            url={sunburst}
+            width={500}
+            height={281.25}
+            controls={true}
+            volume={0.1}
+          />
+        </>
+      );
+    }
+
+    if (size.width > 490 && size.width < 600) {
+      return (
+        <>
+          <ReactPlayer
+            className="new-album__player"
+            url={sunburst}
+            width={425}
+            height={240}
+            controls={true}
+            volume={0.1}
+          />
+        </>
+      );
+    }
+
+    // if (size.width > 400 && size.width < 950) {
+    //   return (
+    //     <>
+    //       <ReactPlayer
+    //         className="new-album__player"
+    //         url={sunburst}
+    //         width={725}
+    //         height={409}
+    //         controls={true}
+    //         volume={0.1}
+    //       />
+    //     </>
+    //   );
+    // }
+
+    return (
+      <>
+        <ReactPlayer
+          className="new-album__player"
+          url={sunburst}
+          width={300}
+          height={169}
+          controls={true}
+          volume={0.1}
+        />
+      </>
+    );
+  }
+
+  return (
+    <div className="content">
+      <div className="top-bar">{handleScreenSize()}</div>
       <div className="img-ctn">
         <img className="content-first" src={knife} alt="" />
       </div>
@@ -31,9 +200,7 @@ function Content() {
           <div className="button-text">Order</div>
         </div>
 
-        <div className="new-album__video-ctn">
-          <ReactPlayer url={sunburst} controls={true} volume={0.1} />
-        </div>
+        <div className="new-album__video-ctn">{handleVideoSize()}</div>
       </div>
 
       <div className="tour-section">
@@ -77,14 +244,7 @@ function Content() {
           ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet,
           consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor
           sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem
-          ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet,
-          consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor
-          sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem
-          ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet,
-          consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor
-          sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem
-          ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet,
-          consectetur lorem ipsum dolor sit amet, consectetur :) :)
+          ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, :) :)
         </p>
       </div>
     </div>
