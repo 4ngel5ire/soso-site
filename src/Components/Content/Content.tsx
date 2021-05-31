@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Content.css";
 import knife from "../../assets/image/knife.jpg";
 import davArms from "../../assets/image/dav-arms.jpg";
 import sunburst from "../../assets/video/sunburst.mp4";
 import ReactPlayer from "react-player";
 import useWindowSize from "../../Hooks/Window";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Content() {
+  const [click, setClick] = useState<boolean>(false);
+  const [button, setButton] = useState<boolean>(true);
+
+  const handleClick = () => {
+    setClick(!click);
+  };
+
+  const closeMobileMenu = () => {
+    setClick(false);
+  };
+
   const size = useWindowSize();
 
   function handleScreenSize() {
@@ -54,12 +67,27 @@ function Content() {
     return (
       <>
         <div className="top-bar__title">SOSO</div>
-        <div className="top-bar__medium">
-          <div className="bar-text">VIDEOS</div>
-          <div className="bar-text">MUSIC</div>
-          <div className="bar-text">TOUR</div>
-          <div className="bar-text">INSTA</div>
+        <div className="top-bar__burger" onClick={handleClick}>
+          {click ? <FaTimes /> : <FaBars />}
         </div>
+
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <a href="mailto:dsalsa21@gmail.com" className="nav-links">
+              Contact
+            </a>
+          </li>
+        </ul>
       </>
     );
   }

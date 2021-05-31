@@ -10,6 +10,7 @@
   overflow: scroll;
   border-left: 3px solid black;
   overflow-x: hidden;
+  /* max-height: 100vh; */
 }
 
 .top-bar {
@@ -67,6 +68,38 @@
   align-items: center;
   font-size: 3rem;
   color: #000;
+}
+
+.top-bar__burger {
+  position: absolute;
+  right: 1rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  justify-content: end;
+}
+
+.nav-item {
+  height: 80px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+  border-bottom: 2px solid #f00946;
+}
+
+.nav-links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
 }
 
 .img-ctn {
@@ -220,9 +253,26 @@ table {
 }
 
 @media screen and (max-width: 500px) {
+  /* .content {
+    max-height: calc(100% - 50px);
+  } */
+
   .top-bar {
+    position: relative;
+    flex-direction: row;
     padding-top: 0.7rem;
     padding-bottom: 0.2rem;
+    /* justify-content: right; */
+    /* text-align: right; */
+    /* align-items: right; */
+  }
+
+  .top-bar__title {
+    justify-content: center;
+    align-items: center;
+    /* text-align: unset; */
+
+    /* padding-right: 3rem; */
   }
 
   .bottom-about:hover {
@@ -232,5 +282,52 @@ table {
   .bottom-about {
     /* animation: silly 3s linear infinite; */
     animation-direction: alternate;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 100%;
+    height: 86.5vh;
+    position: absolute;
+    top: 2.65rem;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: cornflowerblue;
+    left: 0;
+    opacity: 1;
+    transition: all 0.6s ease;
+    z-index: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    align-self: center;
+    transform: translate(29%, -50%) !important;
+  }
+
+  .nav-links:hover {
+    color: #f00946;
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+  }
+
+  .nav-item:hover {
+    border: none;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
   }
 }

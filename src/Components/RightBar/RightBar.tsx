@@ -8,12 +8,12 @@ function RightBar() {
   return (
     <div className="right-bar">
       <div className="right-bar__text">{handleText()}</div>
-      <div className="right-footer">
+      {/* <div className="right-footer">
         <div className="footer-text">link</div>
         <div className="footer-text">link</div>
         <div className="footer-text">link</div>
         <div className="footer-text">link</div>
-      </div>
+      </div> */}
     </div>
   );
 
