@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Content.css";
 import knife from "../../assets/image/knife.jpg";
 import davArms from "../../assets/image/dav-arms.jpg";
@@ -8,9 +8,15 @@ import useWindowSize from "../../Hooks/Window";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function Content() {
+interface ContentProps {
+  iphone: boolean;
+}
+
+function Content(props: ContentProps) {
   const [click, setClick] = useState<boolean>(false);
-  const [button, setButton] = useState<boolean>(true);
+
+  const videoRef = React.createRef<HTMLDivElement>();
+  const tourRef = React.createRef<HTMLDivElement>();
 
   const handleClick = () => {
     setClick(!click);
@@ -22,6 +28,16 @@ function Content() {
 
   const size = useWindowSize();
 
+  function handleMobileMenu() {
+    if (click && props.iphone) {
+      return "nav-menu iphone";
+    }
+    if (click) {
+      return "nav-menu active";
+    }
+    return "nav-menu";
+  }
+
   function handleScreenSize() {
     if (!size.width) {
       return <></>;
@@ -32,15 +48,55 @@ function Content() {
       return (
         <>
           <div className="top-bar__left">
-            <div className="bar-text">MERCH</div>
-            <div className="bar-text">VIDEOS</div>
-            <div className="bar-text">MUSIC</div>
+            {/* <div className="bar-text">MERCH</div> */}
+            <div
+              className="bar-text"
+              onClick={() => {
+                if (videoRef && videoRef.current) {
+                  videoRef.current.scrollIntoView();
+                }
+              }}
+            >
+              VIDEOS
+            </div>
+            <div
+              className="bar-text"
+              onClick={() => {
+                window.location.href =
+                  "https://distrokid.com/hyperfollow/soso1/painful-puzzlement";
+              }}
+            >
+              MUSIC
+            </div>
+            <div
+              className="bar-text"
+              onClick={() => {
+                if (tourRef && tourRef.current) {
+                  tourRef.current.scrollIntoView();
+                }
+              }}
+            >
+              TOUR
+            </div>
           </div>
-          <div className="top-bar__title">SOSO</div>
+          <Link to="/" className="top-bar__title">
+            SOSO
+          </Link>
           <div className="top-bar__right">
-            <div className="bar-text">TOUR</div>
-            <div className="bar-text">CONTACT</div>
-            <div className="bar-text">INSTA</div>
+            <a className="bar-text" href="mailto:dsalsa21@gmail.com">
+              CONTACT
+            </a>
+            <div
+              className="bar-text"
+              onClick={() => {
+                window.location.href = "https://www.instagram.com/soulpudding";
+              }}
+            >
+              INSTA
+            </div>
+            <Link to="/about" className="bar-text">
+              ABOUT
+            </Link>
           </div>
         </>
       );
@@ -50,14 +106,46 @@ function Content() {
     else if (size.width > 500 && size.width < 1200) {
       return (
         <>
-          <div className="top-bar__title">SOSO</div>
+          <Link to="/" className="top-bar__title" style={{ padding: "1rem" }}>
+            SOSO
+          </Link>
           <div className="top-bar__medium">
-            <div className="bar-text">MERCH</div>
-            <div className="bar-text">VIDEOS</div>
-            <div className="bar-text">MUSIC</div>
-            <div className="bar-text">TOUR</div>
-            <div className="bar-text">CONTACT</div>
+            <div
+              className="bar-text"
+              onClick={() => {
+                if (videoRef && videoRef.current) {
+                  videoRef.current.scrollIntoView();
+                }
+              }}
+            >
+              VIDEOS
+            </div>
+            <div
+              className="bar-text"
+              onClick={() => {
+                window.location.href =
+                  "https://distrokid.com/hyperfollow/soso1/painful-puzzlement";
+              }}
+            >
+              MUSIC
+            </div>
+            <div
+              className="bar-text"
+              onClick={() => {
+                if (tourRef && tourRef.current) {
+                  tourRef.current.scrollIntoView();
+                }
+              }}
+            >
+              TOUR
+            </div>
+            <a className="bar-text" href="mailto:dsalsa21@gmail.com">
+              CONTACT
+            </a>
             <div className="bar-text">INSTA</div>
+            <Link to="/about" className="bar-text">
+              ABOUT
+            </Link>
           </div>
         </>
       );
@@ -66,25 +154,42 @@ function Content() {
     //mobile screens
     return (
       <>
-        <div className="top-bar__title">SOSO</div>
+        <Link to="/" className="top-bar__title">
+          SOSO
+        </Link>
         <div className="top-bar__burger" onClick={handleClick}>
           {click ? <FaTimes /> : <FaBars />}
         </div>
 
-        <ul className={click ? "nav-menu active" : "nav-menu"}>
+        <ul className={handleMobileMenu()}>
           <li className="nav-item">
             <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-              Home
+              HOME
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/"
+              className="nav-links"
+              onClick={() => {
+                if (videoRef && videoRef.current) {
+                  setClick(false);
+                  videoRef.current.scrollIntoView();
+                }
+                setClick(false);
+              }}
+            >
+              VIDEOS
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
-              About
+              ABOUT
             </Link>
           </li>
           <li className="nav-item">
             <a href="mailto:dsalsa21@gmail.com" className="nav-links">
-              Contact
+              CONTACT
             </a>
           </li>
         </ul>
@@ -205,59 +310,55 @@ function Content() {
       <div className="img-ctn">
         <img className="content-first" src={knife} alt="" />
       </div>
-      <div className="new-album-ctn">
+      <div className="new-album-ctn" ref={videoRef}>
         <div className="new-album-title">New Album Out Now</div>
 
         <div className="order-button">
-          <div className="button-text">Order</div>
+          <div
+            className="button-text"
+            onClick={() => {
+              window.open(
+                "https://distrokid.com/hyperfollow/soso1/painful-puzzlement",
+                "_blank"
+              );
+            }}
+          >
+            Listen Pls :(
+          </div>
         </div>
 
         <div className="new-album__video-ctn">{handleVideoSize()}</div>
       </div>
 
-      <div className="tour-section">
+      <div className="tour-section" ref={tourRef}>
         <div className="tour-section__title">Upcoming Tour Dates</div>
         <table>
           <tr>
-            <th>Date</th>
-            <th>Location</th>
+            <th>&nbsp;&nbsp;Date&nbsp;&nbsp;</th>
+            <th>&nbsp;&nbsp;Location&nbsp;&nbsp;</th>
           </tr>
           <tr>
-            <td>July 4th, 1991 (For America)</td>
-            <td>Dylans America House</td>
+            <td>&nbsp;&nbsp;Shows will be soon.....&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;TBD&nbsp;&nbsp;</td>
           </tr>
           <tr>
-            <td>July 5th, 2020</td>
-            <td>Middle of the Atlantic Ocean</td>
+            <td>&nbsp;&nbsp;No shows scheduled yet...&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;TBD&nbsp;&nbsp;</td>
           </tr>
           <tr>
-            <td>July 35th, 2021</td>
-            <td>Austrailian Displomat Office (Peace Time Agreement)</td>
+            <td>
+              &nbsp;&nbsp;Please come back and check again :((&nbsp;&nbsp;
+            </td>
+            <td>&nbsp;&nbsp;Middle of the Atlantic Ocean&nbsp;&nbsp;</td>
           </tr>
           <tr>
-            <td>July 99th, 2024</td>
-            <td>TBD</td>
+            <td>&nbsp;&nbsp;please actually come back&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;TBD&nbsp;&nbsp;</td>
           </tr>
         </table>
       </div>
       <div className="img-ctn">
         <img className="content-first" src={davArms} alt="" />
-      </div>
-
-      <div className="bottom-about">
-        <div className="bottom-title">About David.... :)</div>
-        <p>
-          lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet,
-          consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor
-          sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem
-          ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet,
-          consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor
-          sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem
-          ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet,
-          consectetur lorem ipsum dolor sit amet, consectetur lorem ipsum dolor
-          sit amet, consectetur lorem ipsum dolor sit amet, consectetur lorem
-          ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, :) :)
-        </p>
       </div>
 
       <div className="bottom-footer">

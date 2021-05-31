@@ -1,0 +1,274 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  /* flex-basis: 66%; */
+  background-color: beige;
+  font-family: "roslindale";
+  /* transition: flex-basis 0.3s ease 0s; */
+  overflow: scroll;
+  border-left: 3px solid black;
+  overflow-x: hidden;
+  /* max-height: 100vh; */
+}
+
+.top-bar {
+  /* padding-top: 2rem; */
+  display: flex;
+  flex-direction: row;
+  z-index: 4;
+  position: sticky !important;
+  position: -webkit-sticky;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* height: 7vh; */
+  background-color: cornflowerblue;
+  border-bottom: 3px solid black;
+}
+
+.top-bar__left,
+.top-bar__right {
+  display: flex;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.bar-text:hover {
+  color: rgb(241, 199, 3);
+}
+
+.bar-text {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+.top-bar__right {
+  padding-left: 1rem;
+}
+
+.top-bar__left {
+  padding-right: 1rem;
+}
+
+.top-bar__medium {
+  display: flex;
+  flex-direction: row;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  padding-bottom: 0.6rem;
+}
+
+.top-bar__title {
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 3rem;
+  color: #000;
+}
+
+.top-bar__burger {
+  position: absolute;
+  right: 1rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  height: 80px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+  border-bottom: 2px solid #f00946;
+}
+
+.nav-links {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+}
+
+.img-ctn {
+  display: flex;
+}
+
+.content-first {
+  align-self: center;
+  width: 100%;
+  height: auto;
+}
+
+.bottom-about {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 6rem;
+  font-family: "comic";
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bottom-about p {
+  font-size: 2rem;
+}
+
+.bottom-title {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.bottom-about:hover {
+  /* animation: silly 3s linear infinite; */
+  /* color: rgb(241, 199, 3); */
+  /* animation-direction: alternate; */
+}
+
+.bottom-footer {
+  display: flex;
+  position: sticky;
+  border-top: 3px solid black;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "comic";
+  padding: 0.9rem 1rem;
+  background-color: cornflowerblue;
+}
+
+.bottom-footer__text1 {
+  padding-left: 1rem;
+}
+
+.bottom-footer__text2 {
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 1199px) {
+  .top-bar {
+    flex-direction: column;
+    /* height: 13vh; */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .top-bar__title {
+    font-size: 2rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* .content {
+    max-height: calc(100% - 50px);
+  } */
+
+  .bottom-about {
+    padding: 2rem 1rem;
+  }
+
+  .bottom-about p {
+    font-size: 1.3rem;
+  }
+
+  .top-bar {
+    position: relative;
+    flex-direction: row;
+    padding-top: 0.7rem;
+    padding-bottom: 0.2rem;
+    /* justify-content: right; */
+    /* text-align: right; */
+    /* align-items: right; */
+  }
+
+  .top-bar__title {
+    justify-content: center;
+    align-items: center;
+    /* text-align: unset; */
+
+    /* padding-right: 3rem; */
+  }
+
+  .bottom-about:hover {
+    animation: none;
+  }
+
+  .bottom-about {
+    /* animation: silly 3s linear infinite; */
+    animation-direction: alternate;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 100%;
+    height: 86.5vh;
+    position: absolute;
+    top: 2.65rem;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: cornflowerblue;
+    left: 0;
+    opacity: 1;
+    transition: all 0.6s ease;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .nav-menu.iphone {
+    background: cornflowerblue;
+    left: 0;
+    opacity: 1;
+    transition: all 0.6s ease;
+    z-index: 1;
+    height: 73vh;
+    overflow: hidden;
+  }
+
+  .nav-links {
+    display: flex;
+    align-self: center;
+    transform: translate(29%, -50%) !important;
+  }
+
+  .nav-links:hover {
+    color: #f00946;
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+  }
+
+  .nav-item:hover {
+    border: none;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+}

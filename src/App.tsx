@@ -17,8 +17,22 @@ function App() {
       <RightBar />
       <BrowserRouter>
         <Switch>
-          <Route path="/about" component={About}></Route>
-          <Route path="/" exact component={Content}></Route>
+          <Route
+            path="/insta"
+            component={() => {
+              window.location.href = "https://www.instagram.com/soulpudding";
+              return null;
+            }}
+          />
+          <Route
+            path="/about"
+            component={() => <About iphone={platform} />}
+          ></Route>
+          <Route
+            path="/"
+            exact
+            component={() => <Content iphone={platform} />}
+          ></Route>
         </Switch>
       </BrowserRouter>
       {/* <Content /> */}

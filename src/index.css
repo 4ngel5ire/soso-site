@@ -17,13 +17,6 @@ html {
 }
 
 @font-face {
-  font-family: "condor";
-  src: url(./fonts/Condor-CompressedBold-Testing.woff) format("woff");
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
-}
-
-@font-face {
   font-family: "roslindale";
   src: url(./fonts/Roslindale-DeckNarrowBold-Testing.woff) format("woff");
   /* other formats include: 'woff2', 'truetype, 'opentype',
