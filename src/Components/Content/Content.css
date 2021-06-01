@@ -3,18 +3,14 @@
   flex-direction: column;
   position: relative;
   flex: 1;
-  /* flex-basis: 66%; */
   background-color: beige;
   font-family: "roslindale";
-  /* transition: flex-basis 0.3s ease 0s; */
   overflow: scroll;
   border-left: 3px solid black;
   overflow-x: hidden;
-  /* max-height: 100vh; */
 }
 
 .top-bar {
-  /* padding-top: 2rem; */
   display: flex;
   flex-direction: row;
   z-index: 4;
@@ -24,7 +20,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* height: 7vh; */
   background-color: cornflowerblue;
   border-bottom: 3px solid black;
 }
@@ -137,14 +132,10 @@
   padding: 1rem 2.5rem;
   color: black;
   cursor: pointer;
-  /* transition: color 0.3s ease 0s;
-  transition: background-color 0.3s ease 0s; */
 }
 
 .order-buttom:hover {
   background-color: cornflowerblue;
-  /* transition: color 0.3s ease 0s;
-  transition: background-color 0.3s ease 0s; */
 }
 
 .new-album__video-ctn {
@@ -181,26 +172,6 @@ td:hover {
 table {
   background-color: white;
 }
-
-/* .bottom-about {
-  display: flex;
-  flex-direction: column;
-  padding: 1.3rem 4rem;
-  font-family: "comic";
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.bottom-title {
-  font-size: 2rem;
-  padding-bottom: 1rem;
-}
-
-.bottom-about:hover {
-  animation: silly 3s linear infinite;
-  animation-direction: alternate;
-} */
 
 .bottom-footer {
   display: flex;
@@ -244,7 +215,6 @@ table {
 @media screen and (max-width: 1199px) {
   .top-bar {
     flex-direction: column;
-    /* height: 13vh; */
     justify-content: center;
     align-items: center;
   }
@@ -256,26 +226,25 @@ table {
 }
 
 @media screen and (max-width: 500px) {
-  /* .content {
-    max-height: calc(100% - 50px);
-  } */
-
   .top-bar {
     position: relative;
     flex-direction: row;
     padding-top: 0.7rem;
     padding-bottom: 0.2rem;
-    /* justify-content: right; */
-    /* text-align: right; */
-    /* align-items: right; */
   }
 
   .top-bar__title {
     justify-content: center;
     align-items: center;
-    /* text-align: unset; */
+  }
 
-    /* padding-right: 3rem; */
+  .new-album__video-ctn {
+    padding-top: 2rem;
+  }
+
+  .new-album-title {
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .bottom-about:hover {
@@ -283,7 +252,6 @@ table {
   }
 
   .bottom-about {
-    /* animation: silly 3s linear infinite; */
     animation-direction: alternate;
   }
 
@@ -291,7 +259,6 @@ table {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     width: 100%;
     height: 86.5vh;
     position: absolute;

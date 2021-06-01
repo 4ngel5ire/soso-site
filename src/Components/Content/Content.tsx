@@ -168,8 +168,7 @@ function Content(props: ContentProps) {
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to="/"
+            <div
               className="nav-links"
               onClick={() => {
                 if (videoRef && videoRef.current) {
@@ -180,7 +179,21 @@ function Content(props: ContentProps) {
               }}
             >
               VIDEOS
-            </Link>
+            </div>
+          </li>
+          <li className="nav-item">
+            <div
+              className="nav-links"
+              onClick={() => {
+                if (tourRef && tourRef.current) {
+                  setClick(false);
+                  tourRef.current.scrollIntoView();
+                }
+                setClick(false);
+              }}
+            >
+              TOUR
+            </div>
           </li>
           <li className="nav-item">
             <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
@@ -323,7 +336,7 @@ function Content(props: ContentProps) {
               );
             }}
           >
-            Listen Pls :(
+            Listen Pls
           </div>
         </div>
 

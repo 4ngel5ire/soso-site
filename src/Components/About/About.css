@@ -134,11 +134,11 @@
   padding-bottom: 1rem;
 }
 
-.bottom-about:hover {
-  /* animation: silly 3s linear infinite; */
-  /* color: rgb(241, 199, 3); */
-  /* animation-direction: alternate; */
-}
+/* .bottom-about:hover { */
+/* animation: silly 3s linear infinite; */
+/* color: rgb(241, 199, 3); */
+/* animation-direction: alternate; */
+/* } */
 
 .bottom-footer {
   display: flex;

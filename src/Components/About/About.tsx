@@ -146,21 +146,6 @@ function About(props: AboutProps) {
             </Link>
           </li>
           <li className="nav-item">
-            <Link
-              to="/"
-              className="nav-links"
-              onClick={() => {
-                if (videoRef && videoRef.current) {
-                  setClick(false);
-                  videoRef.current.scrollIntoView();
-                }
-                setClick(false);
-              }}
-            >
-              VIDEOS
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
               ABOUT
             </Link>
@@ -188,7 +173,7 @@ function About(props: AboutProps) {
           David Sosa. Originally the bassist of Astragal David’s side project
           takes a softer turn to writing. Having influences from Andy Shauf to
           Chad VanGaalen the home recording aspect with So, so is clear as Dave
-          self records and produces all the music you hear. :) :)
+          self records and produces all the music you hear.
         </p>
       </div>
 
