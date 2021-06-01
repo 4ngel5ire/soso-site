@@ -12,10 +12,6 @@ function App() {
 
   const platform = iOS();
 
-  // const chrome =
-  //   navigator.userAgent.toLowerCase().indexOf("chrome") > -1 &&
-  //   navigator.vendor.toLowerCase().indexOf("google") > -1;
-
   const winNav = window.navigator;
   const chrome = winNav.userAgent.match("CriOS");
   const insta = winNav.userAgent.match("Instagram");
