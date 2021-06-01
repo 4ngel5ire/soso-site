@@ -18,10 +18,13 @@ function App() {
 
   const winNav = window.navigator;
   const chrome = winNav.userAgent.match("CriOS");
+  const insta = winNav.userAgent.match("Instagram");
 
   function getClassName() {
     if (platform && chrome) {
       return "chrome";
+    } else if (platform && insta) {
+      return "App";
     } else if (platform && !chrome) {
       return "iphone";
     }
